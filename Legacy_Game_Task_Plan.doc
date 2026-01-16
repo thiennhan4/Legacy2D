@@ -1,0 +1,360 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+<meta charset="UTF-8">
+<style>
+body { font-family: Arial, sans-serif; font-size: 11pt; }
+h1 { color: #2E86AB; font-size: 18pt; }
+h2 { color: #A23B72; font-size: 14pt; border-bottom: 2px solid #A23B72; }
+h3 { color: #F18F01; font-size: 12pt; }
+table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background-color: #2E86AB; color: white; }
+.checkbox { font-family: Wingdings 2; }
+.week { background-color: #f0f8ff; padding: 15px; margin: 15px 0; border-left: 4px solid #2E86AB; }
+.note { background-color: #fff3cd; padding: 10px; border-left: 4px solid #ffc107; margin: 10px 0; }
+.tech { background-color: #e8f5e9; padding: 5px 10px; border-radius: 3px; display: inline-block; margin: 2px; }
+</style>
+</head>
+<body>
+
+<h1>📋 KẾ HOẠCH PHÁT TRIỂN GAME 2D PLATFORMER "LEGACY" - 15 TUẦN</h1>
+
+<table>
+<tr><th>Thông tin</th><th>Chi tiết</th></tr>
+<tr><td><b>Tên Game</b></td><td>Legacy</td></tr>
+<tr><td><b>Thể loại</b></td><td>2D Platformer (Game nhảy đạp)</td></tr>
+<tr><td><b>Engine</b></td><td>Unity (Ngôn ngữ C#)</td></tr>
+<tr><td><b>Thời gian</b></td><td>15 tuần</td></tr>
+</table>
+
+<h2>📊 BẢNG TỔNG QUAN TIẾN ĐỘ</h2>
+<table>
+<tr><th>Giai đoạn</th><th>Tuần</th><th>Nội dung</th><th>Trạng thái</th></tr>
+<tr><td>Foundation (Nền tảng)</td><td>1-3</td><td>Git, Di chuyển, Animation, Camera, TileMap</td><td>☐ Chưa bắt đầu</td></tr>
+<tr><td>Combat (Chiến đấu)</td><td>4-5</td><td>Hệ thống tấn công, AI Kẻ địch</td><td>☐ Chưa bắt đầu</td></tr>
+<tr><td>Systems (Hệ thống)</td><td>6-9</td><td>Máu, UI, Vật phẩm, Âm thanh, Menu</td><td>☐ Chưa bắt đầu</td></tr>
+<tr><td>Advanced (Nâng cao)</td><td>10-13</td><td>Boss, Lưu game, Kỹ năng, Thêm màn</td><td>☐ Chưa bắt đầu</td></tr>
+<tr><td>Polish (Hoàn thiện)</td><td>14-15</td><td>Hiệu ứng, Test, Build game</td><td>☐ Chưa bắt đầu</td></tr>
+</table>
+
+<p><b>Chú thích:</b> ☐ Chưa làm | ◐ Đang làm | ☑ Hoàn thành</p>
+
+<hr>
+
+<div class="week">
+<h2>🔷 TUẦN 1: Setup Project & Git + Player Movement</h2>
+<p><b>Mục tiêu:</b> Thiết lập môi trường phát triển, cấu hình Git, và hoàn thiện di chuyển nhân vật</p>
+
+<h3>Git & Project Setup (Thiết lập dự án)</h3>
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☑</td><td>Tạo .gitignore</td><td>Git</td><td>File cấu hình để Git bỏ qua các file không cần track</td></tr>
+<tr><td>☑</td><td>Khởi tạo Git repository</td><td>Git CLI</td><td>Tạo kho lưu trữ code để quản lý phiên bản</td></tr>
+<tr><td>☐</td><td>Tạo GitHub repository</td><td>GitHub</td><td>Kho lưu trữ online để backup và chia sẻ code</td></tr>
+<tr><td>☐</td><td>Push code lên GitHub</td><td>Git push</td><td>Đẩy code từ máy lên GitHub</td></tr>
+</table>
+
+<h3>Player Movement (Di chuyển nhân vật)</h3>
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Thêm Ground Check</td><td>Physics2D.OverlapCircle</td><td>Kiểm tra nhân vật có đang chạm đất không - dùng vòng tròn vật lý để phát hiện</td></tr>
+<tr><td>☐</td><td>Cập nhật Jump logic</td><td>Rigidbody2D.AddForce</td><td>Chỉ cho nhảy khi đang đứng trên mặt đất</td></tr>
+<tr><td>☐</td><td>Flip sprite khi đổi hướng</td><td>SpriteRenderer.flipX</td><td>Lật hình nhân vật khi di chuyển trái/phải</td></tr>
+<tr><td>☐</td><td>Tạo Ground Layer</td><td>LayerMask</td><td>Tạo layer riêng cho mặt đất để dễ phát hiện va chạm</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b> 
+<br>• <b>Physics2D.OverlapCircle</b>: Hàm kiểm tra có vật thể nào trong vòng tròn không
+<br>• <b>LayerMask</b>: Bộ lọc để chỉ phát hiện các object thuộc layer cụ thể
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 2: Player Animation & Camera System</h2>
+<p><b>Mục tiêu:</b> Tích hợp animation cho nhân vật và thiết lập camera theo dõi</p>
+
+<h3>Player Animation (Hoạt ảnh nhân vật)</h3>
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tạo Animation Controller</td><td>Unity Animator</td><td>Bộ điều khiển animation - quản lý các trạng thái hoạt ảnh</td></tr>
+<tr><td>☐</td><td>Tạo Idle animation</td><td>Animation Clip</td><td>Hoạt ảnh đứng yên</td></tr>
+<tr><td>☐</td><td>Tạo Run animation</td><td>Animation Clip</td><td>Hoạt ảnh chạy</td></tr>
+<tr><td>☐</td><td>Tạo Jump/Fall animation</td><td>Animation Clip</td><td>Hoạt ảnh nhảy lên và rơi xuống</td></tr>
+<tr><td>☐</td><td>Setup Animator Parameters</td><td>Animator Parameters</td><td>Biến điều khiển: Speed (tốc độ), isGrounded (chạm đất)</td></tr>
+<tr><td>☐</td><td>Tạo Transitions</td><td>Animator Transitions</td><td>Chuyển đổi mượt mà giữa các animation</td></tr>
+</table>
+
+<h3>Camera System (Hệ thống camera)</h3>
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Cài đặt Cinemachine</td><td>Package Manager</td><td>Package chuyên dụng của Unity để làm camera chuyên nghiệp</td></tr>
+<tr><td>☐</td><td>Tạo Virtual Camera</td><td>CinemachineVirtualCamera</td><td>Camera ảo - dễ cấu hình hơn camera thường</td></tr>
+<tr><td>☐</td><td>Setup Follow Player</td><td>Framing Transposer</td><td>Camera tự động theo dõi nhân vật</td></tr>
+<tr><td>☐</td><td>Thêm Camera Bounds</td><td>Cinemachine Confiner 2D</td><td>Giới hạn camera không ra ngoài màn chơi</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>Cinemachine</b>: Package miễn phí của Unity, rất mạnh mẽ cho camera 2D/3D
+<br>• <b>Framing Transposer</b>: Thuật toán giữ nhân vật trong khung hình với offset tùy chỉnh
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 3: Level Design & TileMap</h2>
+<p><b>Mục tiêu:</b> Thiết lập hệ thống TileMap và xây dựng màn chơi đầu tiên</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tổ chức Tile Palette</td><td>Unity Tile Palette</td><td>Bảng màu tile - nơi chứa các ô vuông để vẽ màn chơi</td></tr>
+<tr><td>☐</td><td>Tạo Rule Tiles</td><td>Unity Rule Tile</td><td>Tile thông minh - tự động chọn hình phù hợp (góc, cạnh)</td></tr>
+<tr><td>☐</td><td>Setup TileMap Collider</td><td>TileMap Collider 2D</td><td>Thêm va chạm cho toàn bộ TileMap</td></tr>
+<tr><td>☐</td><td>Tạo Composite Collider</td><td>Composite Collider 2D</td><td>Gộp nhiều collider thành 1 để tối ưu hiệu năng</td></tr>
+<tr><td>☐</td><td>Thiết kế Level 1</td><td>Level Design</td><td>Vẽ layout màn chơi đầu tiên</td></tr>
+<tr><td>☐</td><td>Thêm Background layers</td><td>Sorting Layers</td><td>Các lớp background với parallax (di chuyển khác tốc độ)</td></tr>
+</table>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 4: Combat System - Basic Attack</h2>
+<p><b>Mục tiêu:</b> Xây dựng hệ thống tấn công cơ bản</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tạo Attack animation</td><td>Animation</td><td>Hoạt ảnh đánh/chém</td></tr>
+<tr><td>☐</td><td>Tạo PlayerCombat.cs</td><td>C# Script</td><td>Script xử lý logic chiến đấu của người chơi</td></tr>
+<tr><td>☐</td><td>Setup Attack hitbox</td><td>BoxCollider2D Trigger</td><td>Vùng đánh - collider không cản mà chỉ phát hiện</td></tr>
+<tr><td>☐</td><td>Tạo IDamageable interface</td><td>C# Interface</td><td>Giao diện chung cho mọi thứ có thể nhận damage</td></tr>
+<tr><td>☐</td><td>Thêm Attack cooldown</td><td>Coroutine/Timer</td><td>Thời gian chờ giữa các đòn đánh</td></tr>
+<tr><td>☐</td><td>Thêm Hit effect</td><td>Particle System</td><td>Hiệu ứng khi đánh trúng (tia lửa, ánh sáng)</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>Interface</b>: Bản hợp đồng - mọi class implement phải có các method nhất định
+<br>• <b>Coroutine</b>: Hàm có thể tạm dừng và tiếp tục sau một thời gian
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 5: Enemy AI - Basic</h2>
+<p><b>Mục tiêu:</b> Tạo kẻ địch với AI tuần tra cơ bản</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tạo Enemy base class</td><td>Abstract Class</td><td>Class cha trừu tượng - chứa code chung cho mọi enemy</td></tr>
+<tr><td>☐</td><td>Implement Patrol AI</td><td>Waypoints, FSM</td><td>AI đi tuần tra giữa các điểm đánh dấu</td></tr>
+<tr><td>☐</td><td>Player detection</td><td>Physics2D.Raycast</td><td>Phát hiện người chơi bằng tia laser ảo</td></tr>
+<tr><td>☐</td><td>Chase behavior</td><td>State Machine</td><td>Trạng thái đuổi theo người chơi khi phát hiện</td></tr>
+<tr><td>☐</td><td>Enemy attack</td><td>OnCollisionEnter2D</td><td>Gây damage khi chạm người chơi</td></tr>
+<tr><td>☐</td><td>Death animation</td><td>Animation Events</td><td>Hoạt ảnh chết với sự kiện destroy</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>FSM (Finite State Machine)</b>: Máy trạng thái - enemy có các trạng thái: Idle, Patrol, Chase, Attack, Dead
+<br>• <b>Raycast</b>: Bắn tia để phát hiện vật thể - như mắt của AI
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 6: Health System & UI</h2>
+<p><b>Mục tiêu:</b> Xây dựng hệ thống máu và giao diện người dùng</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tạo Health component</td><td>C# Events</td><td>Component máu có thể dùng lại cho Player và Enemy</td></tr>
+<tr><td>☐</td><td>Tạo Canvas UI</td><td>Unity UI System</td><td>Khung chứa tất cả UI elements</td></tr>
+<tr><td>☐</td><td>Health Bar UI</td><td>Slider/Image</td><td>Thanh máu hiển thị % máu còn lại</td></tr>
+<tr><td>☐</td><td>Hearts/Lives display</td><td>Horizontal Layout</td><td>Hiển thị số mạng bằng icon trái tim</td></tr>
+<tr><td>☐</td><td>Invincibility frames</td><td>Coroutine</td><td>Thời gian bất tử sau khi bị đánh (nhấp nháy)</td></tr>
+<tr><td>☐</td><td>Damage flash effect</td><td>DOTween</td><td>Hiệu ứng nhấp nháy đỏ khi mất máu</td></tr>
+</table>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 7: Collectibles & Score System</h2>
+<p><b>Mục tiêu:</b> Xây dựng hệ thống vật phẩm và điểm số</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tạo Collectible base class</td><td>Abstract Class</td><td>Class cha cho mọi vật phẩm có thể nhặt</td></tr>
+<tr><td>☐</td><td>Coin system</td><td>OnTriggerEnter2D</td><td>Xu - cộng điểm khi người chơi chạm vào</td></tr>
+<tr><td>☐</td><td>Health pickup</td><td>Inheritance</td><td>Tim - hồi máu khi nhặt</td></tr>
+<tr><td>☐</td><td>Score Manager</td><td>Singleton Pattern</td><td>Quản lý điểm - chỉ có 1 instance duy nhất</td></tr>
+<tr><td>☐</td><td>Pickup effects</td><td>Particle + Audio</td><td>Hiệu ứng và âm thanh khi nhặt đồ</td></tr>
+<tr><td>☐</td><td>Power-ups</td><td>Coroutine</td><td>Buff tạm thời: tăng tốc, bất tử, tăng damage</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>Singleton</b>: Design pattern - đảm bảo chỉ có 1 object duy nhất tồn tại
+<br>• <b>OnTriggerEnter2D</b>: Sự kiện khi có vật thể đi vào vùng trigger
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 8: Audio System</h2>
+<p><b>Mục tiêu:</b> Xây dựng hệ thống âm thanh hoàn chỉnh</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Tạo AudioManager</td><td>Singleton, DontDestroyOnLoad</td><td>Quản lý âm thanh - không bị destroy khi đổi scene</td></tr>
+<tr><td>☐</td><td>Background music</td><td>AudioSource Loop</td><td>Nhạc nền phát lặp liên tục</td></tr>
+<tr><td>☐</td><td>Sound Effects</td><td>PlayOneShot</td><td>Hiệu ứng âm thanh: nhảy, đánh, nhặt đồ</td></tr>
+<tr><td>☐</td><td>Audio Mixer</td><td>Unity Audio Mixer</td><td>Bộ trộn âm thanh - điều chỉnh volume từng nhóm</td></tr>
+<tr><td>☐</td><td>Volume settings</td><td>PlayerPrefs</td><td>Lưu cài đặt volume của người chơi</td></tr>
+</table>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 9: Scene Management & Game States</h2>
+<p><b>Mục tiêu:</b> Xây dựng menu và quản lý trạng thái game</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>GameManager</td><td>State Machine</td><td>Quản lý trạng thái: Menu, Playing, Paused, GameOver</td></tr>
+<tr><td>☐</td><td>Main Menu scene</td><td>Unity UI</td><td>Màn hình chính: Play, Settings, Quit</td></tr>
+<tr><td>☐</td><td>Pause menu</td><td>Time.timeScale</td><td>Menu tạm dừng - dừng thời gian game</td></tr>
+<tr><td>☐</td><td>Game Over screen</td><td>UI Panel</td><td>Màn hình thua - hiện điểm, nút chơi lại</td></tr>
+<tr><td>☐</td><td>Loading screen</td><td>AsyncOperation</td><td>Màn hình loading với thanh tiến trình</td></tr>
+<tr><td>☐</td><td>Scene transitions</td><td>CanvasGroup Fade</td><td>Hiệu ứng chuyển cảnh mượt mà</td></tr>
+</table>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 10: Advanced Enemy AI & Boss</h2>
+<p><b>Mục tiêu:</b> Tạo kẻ địch nâng cao và trận đánh Boss</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Flying Enemy</td><td>Custom AI</td><td>Kẻ địch bay - di chuyển theo sóng sine</td></tr>
+<tr><td>☐</td><td>Ranged Enemy</td><td>Object Pooling</td><td>Kẻ địch bắn xa - tái sử dụng đạn để tối ưu</td></tr>
+<tr><td>☐</td><td>Boss base class</td><td>Complex FSM</td><td>Class Boss với nhiều phases (giai đoạn)</td></tr>
+<tr><td>☐</td><td>Boss attack patterns</td><td>Phase-based AI</td><td>Các đòn đánh khác nhau mỗi phase</td></tr>
+<tr><td>☐</td><td>Boss arena</td><td>Trigger Zone</td><td>Khu vực đấu Boss - khóa camera</td></tr>
+<tr><td>☐</td><td>Boss health bar</td><td>World Space Canvas</td><td>Thanh máu Boss hiện trên đầu</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>Object Pooling</b>: Tạo sẵn objects và tái sử dụng thay vì tạo/xóa liên tục
+<br>• <b>Phase-based</b>: Boss đổi skill khi máu giảm (100-66%, 66-33%, 33-0%)
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 11: Save/Load System</h2>
+<p><b>Mục tiêu:</b> Xây dựng hệ thống lưu game và checkpoint</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>SaveData class</td><td>System.Serializable</td><td>Class chứa dữ liệu cần lưu</td></tr>
+<tr><td>☐</td><td>Save Manager</td><td>JsonUtility, File I/O</td><td>Lưu/đọc file JSON chứa dữ liệu game</td></tr>
+<tr><td>☐</td><td>Checkpoint system</td><td>Trigger Zones</td><td>Điểm lưu tự động khi người chơi đi qua</td></tr>
+<tr><td>☐</td><td>Respawn at checkpoint</td><td>Scene Persistence</td><td>Hồi sinh tại checkpoint cuối khi chết</td></tr>
+<tr><td>☐</td><td>Save slots</td><td>UI System</td><td>3 ô lưu game để người chơi chọn</td></tr>
+</table>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 12: Advanced Player Abilities</h2>
+<p><b>Mục tiêu:</b> Thêm kỹ năng mới cho người chơi</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Double Jump</td><td>Jump Counter</td><td>Nhảy đôi - nhảy thêm 1 lần trên không</td></tr>
+<tr><td>☐</td><td>Wall Slide</td><td>Wall Detection</td><td>Trượt tường - giảm tốc độ rơi khi chạm tường</td></tr>
+<tr><td>☐</td><td>Wall Jump</td><td>Custom Physics</td><td>Nhảy tường - bật từ tường sang hướng khác</td></tr>
+<tr><td>☐</td><td>Dash ability</td><td>Coroutine + Cooldown</td><td>Lướt nhanh - di chuyển cực nhanh một đoạn</td></tr>
+<tr><td>☐</td><td>Ability unlock system</td><td>ScriptableObject</td><td>Hệ thống mở khóa kỹ năng theo tiến trình</td></tr>
+<tr><td>☐</td><td>Cooldown UI</td><td>Image Fill</td><td>Hiển thị thời gian chờ của kỹ năng</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>ScriptableObject</b>: Asset chứa data - dễ tạo và chỉnh sửa trong Editor
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 13: Level Design & Hazards</h2>
+<p><b>Mục tiêu:</b> Tạo thêm màn chơi và chướng ngại vật</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Thiết kế Level 2, 3</td><td>TileMap</td><td>Vẽ thêm 2 màn chơi mới</td></tr>
+<tr><td>☐</td><td>Moving platforms</td><td>Waypoint Movement</td><td>Sàn di chuyển giữa các điểm</td></tr>
+<tr><td>☐</td><td>One-way platforms</td><td>Platform Effector 2D</td><td>Sàn có thể nhảy xuyên từ dưới lên</td></tr>
+<tr><td>☐</td><td>Spike traps</td><td>Damage Zone</td><td>Bẫy gai gây damage hoặc chết ngay</td></tr>
+<tr><td>☐</td><td>Falling platforms</td><td>Coroutine + Rigidbody</td><td>Sàn rơi xuống sau khi đứng lên</td></tr>
+<tr><td>☐</td><td>Door & Key system</td><td>Inventory Check</td><td>Cửa khóa - cần chìa khóa để mở</td></tr>
+</table>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 14: Polish & Effects</h2>
+<p><b>Mục tiêu:</b> Hoàn thiện game feel và hiệu ứng đặc biệt</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Particle effects</td><td>Particle System</td><td>Hiệu ứng hạt: bụi chạy, tia lửa đánh</td></tr>
+<tr><td>☐</td><td>Screen shake</td><td>Camera Shake</td><td>Rung màn hình khi có impact mạnh</td></tr>
+<tr><td>☐</td><td>Hit pause</td><td>Time.timeScale</td><td>Dừng game 0.1s khi đánh trúng - tăng cảm giác</td></tr>
+<tr><td>☐</td><td>Post-processing</td><td>URP Post-Processing</td><td>Bloom, Vignette - làm đẹp hình ảnh</td></tr>
+<tr><td>☐</td><td>Game feel polish</td><td>Various</td><td>Coyote time, input buffering, knockback</td></tr>
+<tr><td>☐</td><td>Dialogue system</td><td>UI + ScriptableObject</td><td>Hệ thống hội thoại với NPC</td></tr>
+</table>
+
+<div class="note"><b>📝 Ghi chú:</b>
+<br>• <b>Coyote Time</b>: Cho phép nhảy trong vài frame sau khi rời mặt đất
+<br>• <b>Input Buffering</b>: Ghi nhớ input để thực hiện ngay khi có thể
+</div>
+</div>
+
+<div class="week">
+<h2>🔷 TUẦN 15: Testing, Bug Fixing & Build</h2>
+<p><b>Mục tiêu:</b> Test toàn bộ game, sửa bug và xuất bản</p>
+
+<table>
+<tr><th>☐</th><th>Task</th><th>Tech/Công nghệ</th><th>Giải thích tiếng Việt</th></tr>
+<tr><td>☐</td><td>Playtest toàn bộ</td><td>Manual Testing</td><td>Chơi thử tất cả màn từ đầu đến cuối</td></tr>
+<tr><td>☐</td><td>Bug fixing</td><td>Debugging</td><td>Sửa các lỗi phát hiện được</td></tr>
+<tr><td>☐</td><td>Optimization</td><td>Unity Profiler</td><td>Tối ưu hiệu năng - giảm lag, giảm memory</td></tr>
+<tr><td>☐</td><td>Build for Windows</td><td>Build Settings</td><td>Xuất file .exe để chạy trên Windows</td></tr>
+<tr><td>☐</td><td>Tạo README</td><td>Markdown</td><td>File hướng dẫn: mô tả game, controls, credits</td></tr>
+<tr><td>☐</td><td>Upload itch.io</td><td>itch.io</td><td>Đăng game lên nền tảng chia sẻ game indie</td></tr>
+</table>
+</div>
+
+<hr>
+
+<h2>📌 GIT WORKFLOW HÀNG TUẦN</h2>
+
+<table>
+<tr><th>Bước</th><th>Lệnh</th><th>Giải thích</th></tr>
+<tr><td>1. Đầu tuần</td><td>git checkout -b feature/week-X</td><td>Tạo nhánh mới cho tuần này</td></tr>
+<tr><td>2. Làm việc</td><td>git add . && git commit -m "feat: ..."</td><td>Lưu thay đổi thường xuyên</td></tr>
+<tr><td>3. Cuối tuần</td><td>git push origin feature/week-X</td><td>Đẩy code lên GitHub</td></tr>
+<tr><td>4. Merge</td><td>git checkout main && git merge feature/week-X</td><td>Gộp vào nhánh chính</td></tr>
+<tr><td>5. Tag version</td><td>git tag -a v0.X.0 -m "Week X"</td><td>Đánh dấu phiên bản</td></tr>
+</table>
+
+<hr>
+
+<h2>📈 MILESTONES (Cột mốc quan trọng)</h2>
+
+<table>
+<tr><th>Version</th><th>Tuần</th><th>Milestone</th></tr>
+<tr><td>v0.1.0</td><td>1</td><td>Project Setup Complete</td></tr>
+<tr><td>v0.2.0</td><td>3</td><td>Level Design Foundation</td></tr>
+<tr><td>v0.3.0</td><td>5</td><td>Combat System Complete</td></tr>
+<tr><td>v0.4.0</td><td>7</td><td>Core Systems Complete</td></tr>
+<tr><td>v0.5.0</td><td>9</td><td>Full Game Loop</td></tr>
+<tr><td>v0.6.0</td><td>11</td><td>Save System + Advanced Enemies</td></tr>
+<tr><td>v0.7.0</td><td>13</td><td>All Levels Complete</td></tr>
+<tr><td>v1.0.0</td><td>15</td><td>Release Ready 🎉</td></tr>
+</table>
+
+<hr>
+<p style="text-align: center; color: #666;">
+<b>Legacy Game 2D Platformer - Task Plan Document</b><br>
+Tạo ngày: 09/01/2026 | Cập nhật thường xuyên khi hoàn thành tasks
+</p>
+
+</body>
+</html>

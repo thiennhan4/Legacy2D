@@ -9,7 +9,9 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-[Uu]ser[Ss]ettings/
+[Uu]serSettings/
+.vs/
+
 
 # MemoryCaptures folder
 [Mm]emory[Cc]aptures/
