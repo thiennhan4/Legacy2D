@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
     {
         // Check if player is dead (get from PlayerController)
         PlayerController playerController = GetComponent<PlayerController>();
-        if (playerController != null && playerController.IsDead) return;
+      //  if (playerController != null && playerController.IsDead) return;
 
         // Attack - Only when left mouse button is CLICKED (not held)
         if (Input.GetMouseButtonDown(0) && canAttack && !isAttacking)
